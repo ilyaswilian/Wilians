@@ -209,7 +209,7 @@ after running it you need to scan the qr
 |       ✅        |   Listblock                     |
 |       ✅        |   Listbanned                    |
 |       ✅        |   Listgroup                     |
-|       ✅        |   Get Elaina Admin list         |
+|       ✅        |   Get Wilians Admin list         |
 |       ✅        |   Get owner group               |
 |       ✅        |   Get group info                |
 |       ✅        |   enable or disable nsfw command|
@@ -238,8 +238,8 @@ after running it you need to scan the qr
 |       ✅        |   Getses                        |
 |       ✅        |   Banchat                       |
 |       ✅        |   Maintenance                   |
-|       ✅        |   Add Admin Elaina              |
-|       ✅        |   Del Admin Elaina              |
+|       ✅        |   Add Admin Wilians              |
+|       ✅        |   Del Admin Wilians              |
 |       ✅        |   Block                         |
 |       ✅        |   Unblock                       |
 |       ✅        |   Join Group                    |
