@@ -132,7 +132,7 @@ after running it you need to scan the qr
 |       ✅        |  Twitter Downloader             |
 |       ✅        |  Smule Mp3 Downloader           |
 |       ✅        |  Starmaker Video Downloader     |
-|       ✅        |  Xnxx Video Downloader          |
+|       ✅        |  18+ Video Downloader          |
 |       ✅        |  Joox Downloader                |
 |       ✅        |  Play Music                     |
 
