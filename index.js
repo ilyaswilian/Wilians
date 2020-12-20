@@ -8,6 +8,44 @@ const fs = require('fs')
 const figlet = require('figlet')
 const lolcatjs = require('lolcatjs')
 const options = require('./options')
+const conn = new WAConnection()
+conn.on('qr', qr =>
+{
+   qrcode.generate(qr,
+   {
+      small: true
+   });
+   console.log(`[ ${moment().format("HH:mm:ss")} ] Scan kode qr dengan whatsapp!`);
+});
+
+conn.on('credentials-updated', () =>
+{
+   // save credentials whenever updated
+   console.log(`credentials updated!`)
+   const authInfo = conn.base64EncodedAuthInfo() // get all the auth info we need to restore this session
+   fs.writeFileSync('./session.json', JSON.stringify(authInfo, null, '\t')) // save this info to a file
+})
+fs.existsSync('./session.json') && conn.loadAuthInfo('./session.json')
+// uncomment the following line to proxy the connection; some random proxy I got off of: https://proxyscrape.com/free-proxy-list
+//conn.connectOptions.agent = ProxyAgent ('http://1.0.180.120:8080')
+conn.connect();
+
+conn.on('user-presence-update', json => console.log(json.id + ' presence is => ' + json.type)) || console.log('Bot by ig:@cc2061338sdt')
+conn.on('message-status-update', json =>
+{
+   const participant = json.participant ? ' (' + json.participant + ')' : '' // participant exists when the message is from a group
+   console.log(`[ ${moment().format("HH:mm:ss")} ] => bot by ig:@cc2061338sdt`)
+})
+
+conn.on('message-new', async(m) =>
+{
+   const messageContent = m.message
+   const text = m.message.conversation
+   let id = m.key.remoteJid
+   const messageType = Object.keys(messageContent)[0] // message will always contain one key signifying what kind of message
+   let imageMessage = m.message.imageMessage;
+   console.log(`[ ${moment().format("HH:mm:ss")} ] => Nomor: [ ${id.split("@s.whatsapp.net")[0]} ] => ${text}`);
+
 
 // AUTO UPDATE BY SiKacamata15
 // THX FOR SiKacamata15
